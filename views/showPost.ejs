@@ -1,0 +1,31 @@
+<%- include('partials/header') -%>
+
+<div class="ui main text container segment">
+  <div class="ui huge header">
+    <%= shownPost.title %>
+  </div>
+  <div class="ui top attached segment">
+    <div class="item">
+      <img class="ui centered rounded image" src="<%= shownPost.image %>">
+      <div id="blockspace" class="content">
+        <span>
+          <strong>
+          <%=shownPost.created.toDateString() %> </strong></span>
+      </div>
+      <div id="verticalspace" class="description">
+        <p>
+          <%- shownPost.body %>
+        </p>
+      </div>
+      <form id="verticalspace" class="ui form" action="/posts/<%=shownPost._id%>?_method=DELETE" method="POST">
+        <a href="/posts/<%=shownPost._id%>/edit" role="button" class="ui secondary button"> edit </a>
+        <button class="ui button" type="submit">Delete</button>
+        <br><br><a href="/posts" role="button"> back to blogs </a>
+      </form>
+
+    </div>
+  </div>
+</div>
+
+
+<%- include('partials/footer') -%>
